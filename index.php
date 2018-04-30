@@ -41,6 +41,16 @@
                     });
                     
                 })
+                $("#repassword").change(function() {
+                    if($("#password").val()!=$("#repassword").val()){
+                        $("#myPassword").html("PASSWORD DOES NOT MATCH!");
+                        error=true;
+                    }
+                    else{
+                        $("#myPassword").html("Passed.");
+                        error = false;
+                    }
+                });
                 $("#state").change(function() {
                     $.ajax({
                         
@@ -131,7 +141,7 @@
                 
                 Password: <input type="password"><br>
                 
-                Type Password Again: <input type="password"><span id="myPassword"></span><br>
+                Type Password Again: <input type="repassword"><span id="myPassword"></span><br>
                 
                 <input type="submit" id = "signUp" value="Sign up!">
             </fieldset>
